@@ -1,6 +1,6 @@
 # ALX Interview
 
-ALX_Africa | Holberton School specialization programme
+ALX_Africa | Holberton School Specialization programme
 Interview Preparation - Algorithms
 
 ![Repo size](https://img.shields.io/github/repo-size/Mar-Issah/alx-interview)
