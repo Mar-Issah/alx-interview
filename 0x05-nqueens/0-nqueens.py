@@ -2,43 +2,33 @@
 """ N queens """
 import sys
 
+if len(sys.argv) != 2:
+    sys.exit("Usage: nqueens N")
 
-if len(sys.argv) > 2 or len(sys.argv) < 2:
-    print("Usage: nqueens N")
-    exit(1)
+try:
+    n = int(sys.argv[1])
+except ValueError:
+    sys.exit("N must be a number")
 
-if not sys.argv[1].isdigit():
-    print("N must be a number")
-    exit(1)
-
-if int(sys.argv[1]) < 4:
-    print("N must be at least 4")
-    exit(1)
-
-n = int(sys.argv[1])
+if n < 4:
+    sys.exit("N must be at least 4")
 
 
-def queens(n, idx=0, a=[], b=[], c=[]):
+def queens(n, a=[], b=[], c=[]):
     """ Search for possible positions """
-    if idx < n:
+    if len(a) == n:
+        yield a
+    else:
+        idx = len(a)
         for j in range(n):
             if j not in a and idx + j not in b and idx - j not in c:
-                yield from queens(n, idx + 1, a + [j], b + [idx + j], c + [idx - j])
-    else:
-        yield a
+                yield from queens(n, a + [j], b + [idx + j], c + [idx - j])
 
 
 def solve(n):
     """ Queens solution """
-    k = []
-    idx = 0
-    for solution in queens(n, 0):
-        for sol in solution:
-            k.append([idx, sol])
-            idx += 1
-        print(k)
-        k = []
-        idx = 0
+    for solution in queens(n):
+        print([list(enumerate(solution))])
 
 
 if __name__ == "__main__":
