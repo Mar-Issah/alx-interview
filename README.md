@@ -21,3 +21,4 @@ Interview Preparation - Algorithms
 - 0x05-nqueens
 - 0x06-starwars_api
 - 0x07. Rotate 2D Matrix
+- 0x08-making_change
